@@ -14,7 +14,7 @@ class Profile extends Component {
 
 
     componentDidMount() {
-        let header = new Headers({ "Content-Type": "application/json", "Authorization": "Token fd5c7032bab062860d72583a2fc52bac44ea811a" });
+        let header = new Headers({ "Content-Type": "application/json", "Authorization": "Token token" });
         fetch('https:api.github.com/users/YingChieh', {
             method: 'GET',
             headers: header
