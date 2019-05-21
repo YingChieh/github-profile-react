@@ -12,20 +12,12 @@ class Profile extends Component {
         }
     }
 
-
     componentDidMount() {
-        let header = new Headers({ "Content-Type": "application/json", "Authorization": "Token token" });
-        fetch('https:api.github.com/users/YingChieh', {
-            method: 'GET',
-            headers: header
-        })
-            .then(response => response.json())
-            .then(json => {
-                console.log(json)
-                //dispatch(loadInfo(json));
-                this.setState({ userInfo: json })
-            })
-            .catch(error => console.log(error));
+        this.props.fetchProfile();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({userInfo : nextProps.profile})
     }
 
     updateValue(type, event) {
