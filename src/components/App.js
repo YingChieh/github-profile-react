@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button, Table } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 
 import Profile from '../containers/Profile';
 import SliderComponent from '../containers/Slider';
@@ -7,20 +7,23 @@ import SliderComponent from '../containers/Slider';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = { currentTab: 'profile' }
+        this.state = { currentTab: 'slider' }
     }
 
+    componentDidMount() {
+        this.props.fetchProfile();
+    }
 
     render() {
         return (
             <div>
-                <Navbar bg="dark" variant="dark" expand="lg">
-                    <Navbar.Brand href="#home">My Github Profile</Navbar.Brand>
+                <Navbar bg="dark" variant="dark">
+                    <Navbar.Brand href="#home" onClick={() => this.setState({currentTab:'slider'})}>My Github Profile</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav" >
                         <Nav className="mr-auto" >
-                            <Nav.Link href="#" onClick={() => this.setState({currentTab:'slider'})}>Slider</Nav.Link>
-                            <Nav.Link href="#" onClick={() => this.setState({currentTab:'profile'})}>Profile</Nav.Link>
+                            <Nav.Link href="#Slider" onClick={() => this.setState({currentTab:'slider'})}>Slider</Nav.Link>
+                            <Nav.Link href="#Profile" onClick={() => this.setState({currentTab:'profile'})}>Profile</Nav.Link>
                         </Nav>                        
                     </Navbar.Collapse> 
                 </Navbar>

@@ -7,6 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+input{
+  margin-bottom: 10px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -14,4 +18,13 @@ code {
 
 .slick-slider{
   text-align: center;
+  vertical-align: middle;
+}
+
+.slick-slider img{
+  margin: 0 auto;
+}
+
+.red-border{
+  border: red thin solid;
 }
